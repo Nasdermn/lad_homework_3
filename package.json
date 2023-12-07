@@ -1,0 +1,38 @@
+{
+  "name": "lad_homework_3",
+  "version": "1.0.0",
+  "description": "Третье домашнее задание с использованием TypeScript и TypeORM",
+  "author": "Dan Causelove",
+  "type": "module",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^16.11.10",
+    "@types/nodemon": "^1.19.6",
+    "@types/pg": "^8.10.9",
+    "nodemon": "^3.0.2",
+    "ts-node": "10.7.0",
+    "typescript": "^5.4.0-dev.20231207"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.4.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.3.17"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon dist/index.js",
+    "watch": "tsc -w",
+    "build": "tsc",
+    "typeorm": "npm run build && npx typeorm-ts-node-commonjs --dataSource dist/data-source.js",
+    "migration:generate": "npm run typeorm -- migration:generate src/migrations/Migration",
+    "migration:run": "npm run typeorm -- migration:run",
+    "migration:revert": "npm run typeorm -- migration:revert"
+  }
+}
